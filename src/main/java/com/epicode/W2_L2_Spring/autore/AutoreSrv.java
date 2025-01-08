@@ -34,6 +34,20 @@ public class AutoreSrv {
         return autoreRepo.save(autore);
     }
 
+    public Autore modifyAutore(Long id, Autore modAutore){
+        Autore a = findById(id);
+
+        BeanUtils.copyProperties(modAutore, a);
+
+        return autoreRepo.save(a);
+
+    }
+
+    public Autore deleteAutore (Long id){
+        Autore a = findById(id);
+        autoreRepo.delete(a);
+        return a;
+    }
 
 
 }

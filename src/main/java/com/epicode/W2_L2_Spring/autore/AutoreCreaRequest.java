@@ -1,6 +1,7 @@
 package com.epicode.W2_L2_Spring.autore;
 
 import lombok.Data;
+import lombok.Getter;
 
 import java.time.LocalDate;
 
@@ -10,4 +11,8 @@ public class AutoreCreaRequest {
     private String cognome;
     private String email;
     private LocalDate dataDiNascita;
+
+    public String getEmail() {
+        return email;
+    }
 }
