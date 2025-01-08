@@ -26,4 +26,7 @@ public class Blog {
     @ManyToOne
     private Autore autore;
 
+    public void setAutore(Autore autore) {
+        this.autore = autore;
+    }
 }

@@ -3,6 +3,7 @@ package com.epicode.W2_L2_Spring.blog;
 import com.epicode.W2_L2_Spring.autore.Autore;
 import com.epicode.W2_L2_Spring.autore.AutoreCreaRequest;
 import com.epicode.W2_L2_Spring.autore.AutoreRepo;
+import com.epicode.W2_L2_Spring.autore.AutoreSrv;
 import jakarta.persistence.EntityExistsException;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +15,8 @@ import java.util.List;
 public class BlogSrv {
     @Autowired
     private BlogRepo blogRepo;
+    @Autowired
+    private AutoreSrv autoreSrv;
 
     public List<Blog> findAll(){return blogRepo.findAll();}
 
@@ -31,7 +34,9 @@ public class BlogSrv {
         }
 
         Blog blog = new Blog();
+        Autore autore = autoreSrv.findById(a.getAutoreId());
         BeanUtils.copyProperties(a,blog);
+        blog.setAutore(autore);
 
         return blogRepo.save(blog);
     }

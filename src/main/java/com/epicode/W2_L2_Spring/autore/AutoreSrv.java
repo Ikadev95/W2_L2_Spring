@@ -23,6 +23,14 @@ public class AutoreSrv {
         return autoreRepo.findById(id).get();
     };
 
+    public Autore findByEmail(String mail){
+        if(!autoreRepo.existsByEmail(mail)){
+            throw new EntityExistsException("l'autore non è stato trovato");
+        }
+
+        return autoreRepo.findByEmail(mail);
+    };
+
     public Autore saveAutore(AutoreCreaRequest a){
         if(autoreRepo.existsByEmail(a.getEmail())){
             throw new EntityExistsException("un autore con questa mail esiste già");

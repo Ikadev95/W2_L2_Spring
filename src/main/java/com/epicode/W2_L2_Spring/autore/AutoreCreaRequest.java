@@ -15,4 +15,16 @@ public class AutoreCreaRequest {
     public String getEmail() {
         return email;
     }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public String getCognome() {
+        return cognome;
+    }
+
+    public LocalDate getDataDiNascita() {
+        return dataDiNascita;
+    }
 }

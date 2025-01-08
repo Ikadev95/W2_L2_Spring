@@ -42,7 +42,7 @@ public class AutoreController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<?> modifyCar(@PathVariable Long id, @RequestBody Autore modAutore) {
+    public ResponseEntity<?> modifyAutore(@PathVariable Long id, @RequestBody Autore modAutore) {
         try{
             return ResponseEntity.ok(autoreSrv.modifyAutore(id, modAutore));
         } catch(EntityNotFoundException e) {
