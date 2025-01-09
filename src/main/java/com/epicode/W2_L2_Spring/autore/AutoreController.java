@@ -53,7 +53,7 @@ public class AutoreController {
     @DeleteMapping ("/{id}")
     public ResponseEntity<?> deleteAutore(@PathVariable Long id){
         try{
-            return ResponseEntity.ok(autoreSrv.deleteAutore(id));
+            return new ResponseEntity<>("blog cancellato", HttpStatus.NO_CONTENT);
         } catch(EntityNotFoundException e) {
             return new ResponseEntity<>(e.getMessage(), HttpStatus.NOT_FOUND);
         }

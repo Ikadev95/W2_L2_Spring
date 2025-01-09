@@ -54,10 +54,9 @@ public class BlogController {
     }
 
     @DeleteMapping ("/{id}")
-    public ResponseEntity<?> deleteBlog
-            (@PathVariable Long id){
+    public ResponseEntity<?> deleteBlog (@PathVariable Long id){
         try{
-            return ResponseEntity.ok(blogSrv.deleteBlog(id));
+            return new ResponseEntity<>("blog cancellato", HttpStatus.NO_CONTENT);
         } catch(EntityNotFoundException e) {
             return new ResponseEntity<>(e.getMessage(), HttpStatus.NOT_FOUND);
         }
